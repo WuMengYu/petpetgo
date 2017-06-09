@@ -1,7 +1,8 @@
 let User = require('../models/user.js');
 // 注册
 exports.signup = function (req, res) {
-  let _user = req.body;
+  let _user = req.body
+  console.log(req.body)
   User.findOne({username:_user.username},function (err,user) {
     if (err) return res.status(500).json({msg: '注册失败，请重试',err});
     if (user) {

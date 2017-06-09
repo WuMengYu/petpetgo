@@ -1,35 +1,40 @@
 # 后台 API
 
-
-## 商品分类部分
-
-对分类进行基本的增删改查的操作
-
-#### 添加商品分类
+### 用户注册
 
 ```
-POST /cat
+POST /user
 ```
 
 接收数据
 
 ```js
-name `String` 商品名称
+username String # 用户名
+password String # 密码
 ```
 
-商品名称不可重复，重复返回403错误
+
+用户名不可重复，重复返回403错误
 
 ```js
 {
-  err: err,
-  msg: '添加失败请重试'
+  msg: '用户名重复，请重新注册'
 }
 ```
+
 添加成功返回
 
 ```js
 {
-  msg: '分类添加成功',
-  category: category
+  userId: user._id,
+  username: user.username,
+  msg: '注册成功'
 }
+```
+
+curl 测试
+
+```
+curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' localhost:3008/user/signup
+{"userId":"593a1067d0d0dba391139e0a","username":"happypeter","msg":"注册成功"}%
 ```
