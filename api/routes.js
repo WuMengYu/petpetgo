@@ -1,4 +1,3 @@
-let Cat = require('./controllers/cat');
 let Course = require('./controllers/course');
 let User = require('./controllers/user');
 var Order = require('./controllers/order');
