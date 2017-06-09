@@ -2,7 +2,7 @@
 
 - [用户注册](https://github.com/happypeter/petpetgo/tree/master/api#用户注册)
 - [用户登录](#用户登录)
-- [读取 user 信息][#读取 user 信息]
+- [读取 user 信息](#读取 user 信息)
 
 ### 用户注册
 
@@ -39,7 +39,7 @@ password String # 密码
 curl 测试
 
 ```
-curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com:3008/user/signup
+curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com/user/signup
 {"userId":"593a1067d0d0dba391139e0a","username":"happypeter","msg":"注册成功"}%
 ```
 
@@ -48,9 +48,9 @@ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", 
 curl 测试
 
 ```
-$ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com:3008/user/signin
+$ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com/user/signin
 
-{"userId":"593a110767f1411805a6fcb3","user":"happypeter","msg":"登陆成功"}%                                     ➜  api git:(master) ✗
+
 
 $ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "1111"}' http://petapi.haoduoshipin.com/user/signin
 

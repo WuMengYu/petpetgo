@@ -1,5 +1,6 @@
 import '../css/signup-login-form.css'
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class SignupForm extends Component {
   constructor() {
@@ -9,16 +10,31 @@ class SignupForm extends Component {
     this.signUp = this.signUp.bind(this)
   }
 
-  signUp() {
-    console.log('axios signning up')
+  signUp(e) {
+    e.preventDefault()
+    let data = {
+      username: this.userName.value,
+      password: this.passWord.value
+    }
+    console.log(data)
+    axios.post('http://petapi.haoduoshipin.com/user/signup', data).then(res => {
+      console.log(res)
+    })
   }
 
   render() {
     return(
-      <div
+      <div className="signup-form"
         style={this.props.display ? { display: 'block' } : { display: 'none' }}
       >
-        SignUpForm
+        <div className="form-container">
+          <form onSubmit={this.signUp}>
+            <input ref={input => this.userName = input} type="text" placeholder="用户名" />
+            <input ref={input => this.passWord = input} type="password" placeholder="密码" />
+            <input type="password" placeholder="再次输入" />
+            <input className="submit" value="注册" type="submit" />
+          </form>
+        </div>
       </div>
     )
   }
