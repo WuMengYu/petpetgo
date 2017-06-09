@@ -1,5 +1,6 @@
 import '../css/bottom-list.css'
 import React, { Component } from 'react'
+import SignupForm from './SignupForm'
 
 class BottomList extends Component {
   constructor() {
@@ -13,7 +14,9 @@ class BottomList extends Component {
   }
 
   showSignUp() {
-    console.log('showSignUp')
+    this.setState({
+      showSignUp: true
+    })
   }
 
   showLogin() {
@@ -22,13 +25,14 @@ class BottomList extends Component {
 
   render() {
     return(
-      <div onClick={this.props.toggleOpen}
+      <div
       style={this.props.display ? { display: 'block' } : { display: 'none' }}className="bottom-list">
-
+        <SignupForm display={this.state.showSignUp} />
         <div className="login-actions">
           <ul>
             <li onClick={this.showSignUp}>注册</li>
             <li onClick={this.showLogin}>登录</li>
+            <li onClick={this.props.toggleOpen}>取消</li>
           </ul>
         </div>
       </div>
