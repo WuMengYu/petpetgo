@@ -6,14 +6,29 @@ class Header extends Component {
   constructor(){
     super()
     this.state = {
-      showåList: false
+      showList: false
     }
+    this.handleClick = this.handleClick.bind(this)
+    this.toggleOpen = this.toggleOpen.bind(this)
   }
+
+  handleClick() {
+    this.setState({
+      showList: true
+    })
+  }
+
+  toggleOpen() {
+    this.setState({
+      showList: !this.state.showList
+    })
+  }
+
   render() {
     return(
       <div className="header">
-        <div className="more-button"></div>
-        <BottomList display={this.state.showList}/>
+        <div onClick={this.handleClick} className="more-button"></div>
+        <BottomList toggleOpen={this.toggleOpen} display={this.state.showList}/>
       </div>
     )
   }
