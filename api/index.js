@@ -4,8 +4,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 app.use(cors());
+app.use(express.static('public'))
 
-let dbURL = 'mongodb://localhost:27017/aa-api';
+
+let dbURL = 'mongodb://localhost:27017/petpetgo';
 mongoose.Promise = global.Promise;
 mongoose.connect(dbURL)
 var db = mongoose.connection;
