@@ -44,4 +44,14 @@ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", 
 
 ### 用户登录
 
-数据
+curl 测试
+
+```
+$ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com:3008/user/signin
+
+{"userId":"593a110767f1411805a6fcb3","user":"happypeter","msg":"登陆成功"}%                                     ➜  api git:(master) ✗
+
+$ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "1111"}' http://petapi.haoduoshipin.com:3008/user/signin
+
+{"msg":"密码错误，请核对后重试"}%
+```
