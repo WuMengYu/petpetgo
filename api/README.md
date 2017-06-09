@@ -1,5 +1,8 @@
 # 后台 API
 
+
+
+
 ### 用户注册
 
 ```
@@ -35,6 +38,8 @@ password String # 密码
 curl 测试
 
 ```
-curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' localhost:3008/user/signup
+curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com:3008/user/signup
 {"userId":"593a1067d0d0dba391139e0a","username":"happypeter","msg":"注册成功"}%
 ```
+
+### 用户登录
