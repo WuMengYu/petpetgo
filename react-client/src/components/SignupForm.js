@@ -17,10 +17,10 @@ class SignupForm extends Component {
       password: this.passWord.value
     }
     console.log(data)
-    axios.post('http://petapi.haoduoshipin.com/user/signin', data).then(res => {
+    axios.post('http://petapi.haoduoshipin.com/user/signup', data).then(res => {
       console.log(res)
     }).catch(err => {
-      console.log(err)
+      console.log(err.response) // show json data from sever
     })
   }
 
