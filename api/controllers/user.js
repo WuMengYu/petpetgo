@@ -29,7 +29,7 @@ exports.signin = function (req, res) {
   User.findOne({username:_user.username},function (err,user) {
     if (err) return res.status(500).json({msg: '登陆失败，请重试',err});
     if (!user) {
-      return res.status(401).json({msg: '登陆失败，用户名不存在'})
+      return res.json({msg: '登陆失败，用户名不存在'})
     }
     user.comparePassword(_user.password, function (err, isMatch) {
       if (err) return res.status(500).json({msg: '登陆失败，请重试',err});
