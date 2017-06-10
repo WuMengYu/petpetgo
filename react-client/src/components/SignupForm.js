@@ -1,6 +1,9 @@
 import '../css/signup-login-form.css'
 import React, { Component } from 'react'
 import axios from 'axios'
+import {
+  withRouter
+} from 'react-router-dom'
 
 class SignupForm extends Component {
   constructor() {
@@ -17,8 +20,9 @@ class SignupForm extends Component {
       password: this.passWord.value
     }
     console.log(data)
-    axios.post('http://petapi.haoduoshipin.com/user/signup2', data).then(res => {
-      console.log(res)
+    axios.post('http://petapi.haoduoshipin.com/user/signup', data).then(res => {
+      console.log('res', res)
+      this.props.history.push('/mine')
     }).catch(err => {
       console.log(err.response) // show json data from sever
     })
@@ -42,4 +46,4 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm
+export default withRouter(SignupForm)
