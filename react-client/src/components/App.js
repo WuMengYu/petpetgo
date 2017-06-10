@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import Header from './Header'
 import Main from './Main'
+import BottomList from './BottomList'
 import '../css/App.css'
 import {
-  BrowserRouter as Router,
-  Route,
-  Link
+  BrowserRouter as Router
 } from 'react-router-dom'
 
 import {  Provider } from 'react-redux'
@@ -20,6 +19,7 @@ class App extends Component {
           <div>
             <Header />
             <Main />
+            <BottomList />
           </div>
         </Router>
       </Provider>

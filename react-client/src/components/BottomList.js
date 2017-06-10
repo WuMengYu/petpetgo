@@ -1,6 +1,7 @@
 import '../css/bottom-list.css'
 import React, { Component } from 'react'
 import SignupForm from './SignupForm'
+import { connect } from 'react-redux'
 
 class BottomList extends Component {
   constructor() {
@@ -34,7 +35,7 @@ class BottomList extends Component {
   render() {
     return(
       <div
-      style={this.props.display ? { display: 'block' } : { display: 'none' }} className="bottom-list">
+      style={this.props.open ? { display: 'block' } : { display: 'none' }} className="bottom-list">
         <SignupForm display={this.state.showSignUp} hideForm={this.cancel} />
         <div className="login-actions">
           <ul>
@@ -48,4 +49,7 @@ class BottomList extends Component {
   }
 }
 
-export default BottomList
+const mapStateToProps = (state) => ({
+  open: state.bottomList.open
+})
+export default connect(mapStateToProps)(BottomList)
