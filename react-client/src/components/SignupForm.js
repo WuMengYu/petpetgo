@@ -21,7 +21,8 @@ class SignupForm extends Component {
     }
     console.log(data)
     axios.post('http://petapi.haoduoshipin.com/user/signup', data).then(res => {
-      console.log('res', res)
+      console.log('res........', res)
+      this.props.hideForm()
       this.props.history.push('/mine')
     }).catch(err => {
       console.log(err.response) // show json data from sever

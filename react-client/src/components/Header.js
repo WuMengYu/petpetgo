@@ -8,27 +8,27 @@ class Header extends Component {
     this.state = {
       showList: false
     }
-    this.handleClick = this.handleClick.bind(this)
-    this.toggleOpen = this.toggleOpen.bind(this)
+    this.openBottomList = this.openBottomList.bind(this)
+    this.closeBottomList = this.closeBottomList.bind(this)
   }
 
-  handleClick() {
+  openBottomList() {
     this.setState({
-      showList: true
+      showBottomList: true
     })
   }
 
-  toggleOpen() {
+  closeBottomList() {
     this.setState({
-      showList: !this.state.showList
+      showBottomList: false
     })
   }
 
   render() {
     return(
       <div className="header">
-        <div onClick={this.handleClick} className="more-button"></div>
-        <BottomList toggleOpen={this.toggleOpen} display={this.state.showList}/>
+        <div onClick={this.openBottomList} className="more-button"></div>
+        <BottomList closeBottomList={this.closeBottomList} display={this.state.showBottomList}/>
       </div>
     )
   }

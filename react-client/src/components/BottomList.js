@@ -10,11 +10,11 @@ class BottomList extends Component {
       showLogin: false
     }
     this.showLogin = this.showLogin.bind(this)
-    this.showSignUp = this.showSignUp.bind(this)
+    this.openSignup = this.openSignup.bind(this)
     this.cancel = this.cancel.bind(this)
   }
 
-  showSignUp() {
+  openSignup() {
     this.setState({
       showSignUp: true
     })
@@ -25,7 +25,7 @@ class BottomList extends Component {
   }
 
   cancel() {
-    this.props.toggleOpen();
+    this.props.closeBottomList();
     this.setState({
       showSignUp: false
     })
@@ -35,10 +35,10 @@ class BottomList extends Component {
     return(
       <div
       style={this.props.display ? { display: 'block' } : { display: 'none' }} className="bottom-list">
-        <SignupForm display={this.state.showSignUp} />
+        <SignupForm display={this.state.showSignUp} hideForm={this.cancel} />
         <div className="login-actions">
           <ul>
-            <li onClick={this.showSignUp}>注册</li>
+            <li onClick={this.openSignup}>注册</li>
             <li onClick={this.showLogin}>登录</li>
             <li onClick={this.cancel}>取消</li>
           </ul>
