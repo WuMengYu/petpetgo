@@ -2,44 +2,32 @@ import '../css/bottom-list.css'
 import React, { Component } from 'react'
 import SignupForm from './SignupForm'
 import { connect } from 'react-redux'
+import { closeBottomList } from '../redux/actions/bottomListActions'
+import { openSignupForm } from '../redux/actions/signupFormActions'
 
 class BottomList extends Component {
   constructor() {
     super()
-    this.state = {
-      showSignUp: false,
-      showLogin: false
-    }
-    this.showLogin = this.showLogin.bind(this)
-    this.openSignup = this.openSignup.bind(this)
     this.cancel = this.cancel.bind(this)
-  }
-
-  openSignup() {
-    this.setState({
-      showSignUp: true
-    })
-  }
-
-  showLogin() {
-    console.log('showLogin')
+    this.signup = this.signup.bind(this)
   }
 
   cancel() {
-    this.props.closeBottomList();
-    this.setState({
-      showSignUp: false
-    })
+    this.props.closeBottomList()
+  }
+
+  signup() {
+    this.props.openSignupForm()
+    this.props.closeBottomList()
   }
 
   render() {
     return(
       <div
       style={this.props.open ? { display: 'block' } : { display: 'none' }} className="bottom-list">
-        <SignupForm display={this.state.showSignUp} hideForm={this.cancel} />
         <div className="login-actions">
           <ul>
-            <li onClick={this.openSignup}>注册</li>
+            <li onClick={this.signup}>注册</li>
             <li onClick={this.showLogin}>登录</li>
             <li onClick={this.cancel}>取消</li>
           </ul>
@@ -52,4 +40,4 @@ class BottomList extends Component {
 const mapStateToProps = (state) => ({
   open: state.bottomList.open
 })
-export default connect(mapStateToProps)(BottomList)
+export default connect(mapStateToProps, { closeBottomList, openSignupForm })(BottomList)

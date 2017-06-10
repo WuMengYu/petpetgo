@@ -1,11 +1,11 @@
 
 import { combineReducers } from 'redux'
 import bottomList from './bottomListReducer'
-import signUpForm from './signUpFormReducer'
+import signupForm from './signupFormReducer'
 
 const rootReducer = combineReducers({
   bottomList,
-  signUpForm
+  signupForm
 })
 
 export default rootReducer

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header'
 import Main from './Main'
 import BottomList from './BottomList'
+import SignupForm from './SignupForm'
 import '../css/App.css'
 import {
   BrowserRouter as Router
@@ -19,6 +20,7 @@ class App extends Component {
           <div>
             <Header />
             <Main />
+            <SignupForm />
             <BottomList />
           </div>
         </Router>

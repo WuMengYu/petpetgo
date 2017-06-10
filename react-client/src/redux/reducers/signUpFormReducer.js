@@ -1,13 +1,15 @@
 let defaultState = {
   open: false
 }
-const signUpForm = (state=defaultState, action) => {
+const signupForm = (state=defaultState, action) => {
   switch (action.type) {
-    case 'OPEN_BOTTOM_LIST':
+    case 'OPEN_SIGNUP_FORM':
       return { open: true }
+    case 'CLOSE_SIGNUP_FORM':
+      return { open: false }
     default:
       return state
   }
 }
 
-export default signUpForm
+export default signupForm

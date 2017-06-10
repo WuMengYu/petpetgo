@@ -1,6 +1,9 @@
 import '../css/signup-login-form.css'
 import React, { Component } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { closeSignupForm } from '../redux/actions/signupFormActions'
+
 import {
   withRouter
 } from 'react-router-dom'
@@ -31,14 +34,17 @@ class SignupForm extends Component {
   render() {
     return(
       <div className="signup-form"
-        style={this.props.display ? { display: 'block' } : { display: 'none' }}
+        style={this.props.open ? { display: 'block' } : { display: 'none' }}
       >
         <div className="form-container">
           <form onSubmit={this.signUp}>
             <input ref={input => this.userName = input} type="text" placeholder="用户名" />
             <input ref={input => this.passWord = input} type="password" placeholder="密码" />
             <input type="password" placeholder="再次输入" />
-            <input className="submit" value="注册" type="submit" />
+            <div className="signup-actions">
+              <div onClick={this.props.closeSignupForm} className="cancle">取消</div>
+              <button className="submit" type="submit">注册</button>
+            </div>
           </form>
         </div>
       </div>
@@ -46,4 +52,8 @@ class SignupForm extends Component {
   }
 }
 
-export default withRouter(SignupForm)
+
+const mapStateToProps = (state) => ({
+  open: state.signupForm.open
+})
+export default connect(mapStateToProps, { closeSignupForm })(withRouter(SignupForm))

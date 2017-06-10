@@ -26,9 +26,36 @@
   outline: none;
 }
 
+.signup-actions {
+  display: flex;
+  margin-top: 10px;
+}
+
+.signup-actions button {
+  flex-grow: 1;
+  border-radius: 4px;
+  border: none;
+  line-height: 2;
+  font-size: 1.2em;
+  margin: 5px;
+}
+
+.signup-actions button:focus {
+  outline: none;
+}
+
 .signup-form .submit {
   background-color: #fdc900;
+  color: #212121;
+}
+.signup-form .cancle {
+  line-height: 2;
   font-size: 1.2em;
-  margin-top: 10px;
+  margin: 5px;
+  text-align: center;
+  flex-grow: 1;
+  border-radius: 4px;
+  border: none;
+  background-color: #c7c7c7;
   color: white;
 }
