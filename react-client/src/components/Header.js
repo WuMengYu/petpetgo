@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import '../css/header.css'
 import BottomList from './BottomList'
 
+
+import { connect } from 'react-redux'
+
 class Header extends Component {
   constructor(){
     super()
@@ -11,7 +14,9 @@ class Header extends Component {
     this.openBottomList = this.openBottomList.bind(this)
     this.closeBottomList = this.closeBottomList.bind(this)
   }
-
+  componentWillMount(){
+    console.log('componentWillMount--data', this.props.data)
+  }
   openBottomList() {
     this.setState({
       showBottomList: true
@@ -34,4 +39,9 @@ class Header extends Component {
   }
 }
 
-export default Header
+
+const mapStateToProps = (state) => ({
+  data: state
+})
+
+export default connect(mapStateToProps)(Header)
