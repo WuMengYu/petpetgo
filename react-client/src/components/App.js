@@ -8,7 +8,15 @@ import {
   Link
 } from 'react-router-dom'
 
+import store from '../redux/store'
+
 class App extends Component {
+  constructor(){
+    super()
+  }
+  componentWillMount(){
+    console.log('componentWillMount', store.getState())
+  }
   render() {
     return (
       <Router>
