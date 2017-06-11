@@ -1,7 +1,7 @@
 import '../css/signup-login-form.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { closeSignupForm, signup } from '../redux/actions/signupFormActions'
+import { signup } from '../redux/actions/signupFormActions'
 
 import {
   withRouter
@@ -19,7 +19,7 @@ class SignupForm extends Component {
       username: this.userName.value,
       password: this.passWord.value
     }
-    this.props.signup(data, this.props.history, this.props.closeSignupForm)
+    this.props.signup(data, this.props.history)
   }
 
   render() {
@@ -46,4 +46,4 @@ class SignupForm extends Component {
 const mapStateToProps = (state) => ({
   open: state.signupForm.open
 })
-export default connect(mapStateToProps, { closeSignupForm, signup })(withRouter(SignupForm))
+export default connect(mapStateToProps, { signup })(withRouter(SignupForm))

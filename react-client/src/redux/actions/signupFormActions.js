@@ -1,4 +1,5 @@
 import axios from 'axios'
+// import { openBottomList } from './botttomListActions'
 
 export const openSignupForm = () => (
   dispatch => {
@@ -7,16 +8,17 @@ export const openSignupForm = () => (
 )
 export const closeSignupForm = () => (
   dispatch => {
+    console.log('hllo')
     dispatch({ type: 'CLOSE_SIGNUP_FORM'})
   }
 )
 
-export const signup = (data, history, close) => (
+export const signup = (data, history) => (
   dispatch => {
     axios.post('http://petapi.haoduoshipin.com/user/signup', data).then(res => {
       console.log('res.data', res.data)
       history.push('/mine')
-      close()
+      dispatch({ type: 'CLOSE_SIGNUP_FORM'})
     })
   }
 )
