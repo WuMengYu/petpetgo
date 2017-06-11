@@ -19,7 +19,7 @@ class SignupForm extends Component {
       username: this.userName.value,
       password: this.passWord.value
     }
-    this.props.signup(data, this.props.history)
+    this.props.signup(data, this.props.history, this.props.closeSignupForm)
   }
 
   render() {

@@ -11,11 +11,12 @@ export const closeSignupForm = () => (
   }
 )
 
-export const signup = (data, history) => (
+export const signup = (data, history, close) => (
   dispatch => {
     axios.post('http://petapi.haoduoshipin.com/user/signup', data).then(res => {
       console.log('res.data', res.data)
       history.push('/mine')
+      close()
     })
   }
 )
