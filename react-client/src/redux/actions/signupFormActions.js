@@ -8,7 +8,6 @@ export const openSignupForm = () => (
 )
 export const closeSignupForm = () => (
   dispatch => {
-    console.log('hllo')
     dispatch({ type: 'CLOSE_SIGNUP_FORM'})
   }
 )

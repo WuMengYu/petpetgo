@@ -1,7 +1,7 @@
 import '../css/signup-login-form.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signup } from '../redux/actions/signupFormActions'
+import { signup, closeSignupForm } from '../redux/actions/signupFormActions'
 
 import {
   withRouter
@@ -46,4 +46,4 @@ class SignupForm extends Component {
 const mapStateToProps = (state) => ({
   open: state.signupForm.open
 })
-export default connect(mapStateToProps, { signup })(withRouter(SignupForm))
+export default connect(mapStateToProps, { signup, closeSignupForm })(withRouter(SignupForm))
