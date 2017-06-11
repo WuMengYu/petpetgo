@@ -1,6 +1,5 @@
 import '../css/bottom-list.css'
 import React, { Component } from 'react'
-import SignupForm from './SignupForm'
 import { connect } from 'react-redux'
 import { closeBottomList } from '../redux/actions/bottomListActions'
 import { openSignupForm } from '../redux/actions/signupFormActions'
