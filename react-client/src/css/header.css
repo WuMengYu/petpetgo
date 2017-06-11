@@ -17,3 +17,15 @@
   -webkit-background-size: cover;
   background-size: cover;
 }
+.header .back-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+  float: right;
+  background-image: url(../img/left.svg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}

@@ -52,7 +52,6 @@ class SignupForm extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => ({
   open: state.signupForm.open
 })
