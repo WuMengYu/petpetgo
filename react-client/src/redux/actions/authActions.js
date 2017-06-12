@@ -50,6 +50,7 @@ export const signup = (data, history) => (
         console.log(error.response.data.msg)
         const { msg } = error.response.data
         dispatch({ type: 'FLASH', msg })
+        setTimeout(() => dispatch({ type: 'HIDE_FLASH' }), 5000)
       }
     )
   }

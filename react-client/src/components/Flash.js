@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import '../css/flash.css'
 
-const Flash = (props) => (
-  <h1 style={props.open ? { display: 'block' } : { display: 'none' }}>
-    FLASH: {props.msg}
-  </h1>
-)
+class Flash extends Component {
+  render() {
+    return(
+      <div className="flash" style={this.props.open ? { display: 'block' } : { display: 'none' }}>
+        {this.props.msg}
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = (state) => ({
   open: state.view.flashOpen,

@@ -22,10 +22,10 @@ class App extends Component {
           <div>
             <Header />
             <Main />
-            <Flash />
             <SignupForm />
             <LoginForm />
             <BottomList />
+            <Flash />
           </div>
         </Router>
       </Provider>

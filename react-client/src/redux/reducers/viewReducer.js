@@ -11,6 +11,8 @@ const view = (state=defaultState, action) => {
       return {...state,  bottomListOpen: false }
     case 'FLASH':
       return {...state,  flashOpen: true, flashMsg: action.msg }
+    case 'HIDE_FLASH':
+      return {...state,  flashOpen: false }
     default:
       return state
   }
