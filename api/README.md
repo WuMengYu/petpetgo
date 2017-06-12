@@ -43,6 +43,13 @@ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", 
 {"userId":"593a1067d0d0dba391139e0a","username":"happypeter","msg":"注册成功"}%
 ```
 
+如果用户名已经存在，返回
+
+```
+curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com/user/signup
+{"msg":"用户名重复，请重新注册"}%
+```
+
 ### 用户登录
 
 curl 测试
@@ -50,7 +57,8 @@ curl 测试
 ```
 $ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "111111"}' http://petapi.haoduoshipin.com/user/signin
 
-
+curl -X POST -H 'Content-Type: application/json' -d '{"username": "happyper", "password": "111111"}' http://petapi.haoduoshipin.com/user/signin
+{"msg":"登陆失败，用户名不存在"}%
 
 $ curl -X POST -H 'Content-Type: application/json' -d '{"username": "happypeter", "password": "1111"}' http://petapi.haoduoshipin.com/user/signin
 
