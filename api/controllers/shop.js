@@ -2,7 +2,7 @@ var Shop = require('../models/shop');
 
 exports.search = function (req, res) {
   console.log(req.body.key)
-  Shop.find({$text: {$search: req.body.key}})
+  Shop.find({name: {$regex: req.body.key}})
          .exec(function(err, shops) {
             res.json({
               shops
