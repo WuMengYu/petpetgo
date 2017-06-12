@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../css/header.css'
-import { openBottomList } from '../redux/actions/bottomListActions'
+import { openBottomList } from '../redux/actions/viewActions'
 import { connect } from 'react-redux'
 import {
   withRouter

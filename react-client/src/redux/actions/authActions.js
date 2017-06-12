@@ -45,7 +45,13 @@ export const signup = (data, history) => (
       history.push('/mine')
       dispatch({ type: 'SIGNUP', userName: res.data.username})
       dispatch({ type: 'CLOSE_SIGNUP_FORM'})
-    })
+    }).catch(
+      error => {
+        console.log(error.response.data.msg)
+        const { msg } = error.response.data
+        dispatch({ type: 'FLASH', msg })
+      }
+    )
   }
 )
 

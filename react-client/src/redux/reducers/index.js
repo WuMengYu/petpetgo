@@ -1,10 +1,10 @@
 
 import { combineReducers } from 'redux'
-import bottomList from './bottomListReducer'
+import view from './viewReducer'
 import auth from './authReducer'
 
 const rootReducer = combineReducers({
-  bottomList,
+  view,
   auth
 })
 

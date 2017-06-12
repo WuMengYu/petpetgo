@@ -1,7 +1,7 @@
 import '../css/bottom-list.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { closeBottomList } from '../redux/actions/bottomListActions'
+import { closeBottomList } from '../redux/actions/viewActions'
 
 import { openLoginForm, openSignupForm } from '../redux/actions/authActions'
 import { logout } from '../redux/actions/authActions'
@@ -58,7 +58,7 @@ class BottomList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  open: state.bottomList.open,
+  open: state.view.bottomListOpen,
   currentUser: state.auth.currentUser
 })
 export default connect(mapStateToProps, { closeBottomList, openSignupForm, openLoginForm , logout})(BottomList)
