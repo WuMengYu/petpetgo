@@ -52,6 +52,7 @@ export const signup = (data, history) => (
 
 export const logout = () => (
   dispatch => {
+    localStorage.setItem('userId', null)
     dispatch({ type: 'LOGOUT'})
   }
 )
