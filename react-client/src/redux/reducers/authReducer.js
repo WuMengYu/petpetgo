@@ -1,6 +1,7 @@
 let defaultState = {
   currentUser: '',
-  loginFormOpen: false
+  loginFormOpen: false,
+  signupFormOpen: false
 }
 const auth = (state=defaultState, action) => {
   switch (action.type) {
@@ -16,6 +17,10 @@ const auth = (state=defaultState, action) => {
       return {...state, currentUser: action.userName}
     case 'LOGOUT':
       return {...state, currentUser: ''}
+    case 'OPEN_SIGNUP_FORM':
+      return {...state, signupFormOpen: true}
+    case 'CLOSE_SIGNUP_FORM':
+      return {...state, signupFormOpen: false}
     default:
       return state
   }

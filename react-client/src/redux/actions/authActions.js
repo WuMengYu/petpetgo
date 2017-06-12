@@ -37,7 +37,6 @@ export const closeLoginForm = () => (
   }
 )
 
-
 export const signup = (data, history) => (
   dispatch => {
     axios.post(`${Settings.host}/user/signup`, data).then(res => {
@@ -49,6 +48,20 @@ export const signup = (data, history) => (
     })
   }
 )
+
+
+export const openSignupForm = () => (
+  dispatch => {
+    dispatch({ type: 'OPEN_SIGNUP_FORM'})
+  }
+)
+
+export const closeSignupForm = () => (
+  dispatch => {
+    dispatch({ type: 'CLOSE_SIGNUP_FORM'})
+  }
+)
+
 
 export const logout = () => (
   dispatch => {

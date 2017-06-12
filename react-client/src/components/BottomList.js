@@ -2,9 +2,8 @@ import '../css/bottom-list.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { closeBottomList } from '../redux/actions/bottomListActions'
-import { openSignupForm } from '../redux/actions/signupFormActions'
 
-import { openLoginForm } from '../redux/actions/authActions'
+import { openLoginForm, openSignupForm } from '../redux/actions/authActions'
 import { logout } from '../redux/actions/authActions'
 
 class BottomList extends Component {
@@ -33,8 +32,6 @@ class BottomList extends Component {
     this.props.logout()
     this.props.closeBottomList()
   }
-
-
 
 
   render() {
