@@ -1,4 +1,4 @@
-let Course = require('./controllers/course');
+let Shop = require('./controllers/shop');
 let User = require('./controllers/user');
 var Order = require('./controllers/order');
 
@@ -8,11 +8,12 @@ module.exports = function (app) {
     res.send('index.html')
   })
 
-  //  course
-  app.post('/course/new',Course.new)
-  app.get('/course/detail/:id',Course.detail)
-  app.get('/courses', Course.findAll)
-  app.delete('/course/delete/:id',Course.del)
+  //  Shop
+  app.post('/shop/search',Shop.search)
+  app.post('/shop/new', Shop.add)
+  app.get('/shops', Shop.all)
+
+
 
   // account
   app.post('/user/signup', User.signup)
