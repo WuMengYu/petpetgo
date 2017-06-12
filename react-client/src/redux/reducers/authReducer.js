@@ -14,6 +14,8 @@ const auth = (state=defaultState, action) => {
       return {...state, currentUser: action.userName}
     case 'SIGNUP':
       return {...state, currentUser: action.userName}
+    case 'LOGOUT':
+      return {...state, currentUser: ''}
     default:
       return state
   }

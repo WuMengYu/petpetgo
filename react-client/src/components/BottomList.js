@@ -5,6 +5,7 @@ import { closeBottomList } from '../redux/actions/bottomListActions'
 import { openSignupForm } from '../redux/actions/signupFormActions'
 
 import { openLoginForm } from '../redux/actions/authActions'
+import { logout } from '../redux/actions/authActions'
 
 class BottomList extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class BottomList extends Component {
     this.cancel = this.cancel.bind(this)
     this.signup = this.signup.bind(this)
     this.login = this.login.bind(this)
+    this.logout = this.logout.bind(this)
   }
 
   cancel() {
@@ -27,16 +29,30 @@ class BottomList extends Component {
     this.props.openLoginForm()
     this.props.closeBottomList()
   }
+  logout() {
+    this.props.logout()
+    this.props.closeBottomList()
+  }
+
+
+
 
   render() {
+    let authString = this.props.currentUser === '' ? (
+      <div>
+        <li key="signup" onClick={this.signup}>注册</li>
+        <li key="login" onClick={this.login}>登录</li>
+      </div>
+    ) : (
+      <li key="logout" onClick={this.logout}>退出</li>
+    )
     return(
       <div
       style={this.props.open ? { display: 'block' } : { display: 'none' }} className="bottom-list">
         <div className="login-actions">
           <ul>
-            <li onClick={this.signup}>注册</li>
-            <li onClick={this.login}>登录</li>
-            <li onClick={this.cancel}>取消</li>
+            { authString }
+            <li key="cancel" onClick={this.cancel}>取消</li>
           </ul>
         </div>
       </div>
@@ -45,6 +61,7 @@ class BottomList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  open: state.bottomList.open
+  open: state.bottomList.open,
+  currentUser: state.auth.currentUser
 })
-export default connect(mapStateToProps, { closeBottomList, openSignupForm, openLoginForm })(BottomList)
+export default connect(mapStateToProps, { closeBottomList, openSignupForm, openLoginForm , logout})(BottomList)

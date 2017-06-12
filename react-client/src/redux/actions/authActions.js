@@ -49,3 +49,9 @@ export const signup = (data, history) => (
     })
   }
 )
+
+export const logout = () => (
+  dispatch => {
+    dispatch({ type: 'LOGOUT'})
+  }
+)
