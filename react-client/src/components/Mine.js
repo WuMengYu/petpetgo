@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 
 class App extends Component {
   componentWillMount() {
-    this.props.fetchUser()
+    if (this.props.currentUser === '') {
+      this.props.fetchUser()
+    }
   }
   render() {
     return (

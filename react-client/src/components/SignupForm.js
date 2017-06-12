@@ -1,7 +1,8 @@
 import '../css/signup-login-form.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signup, closeSignupForm } from '../redux/actions/signupFormActions'
+import { closeSignupForm } from '../redux/actions/signupFormActions'
+import { signup } from '../redux/actions/authActions'
 
 import {
   withRouter

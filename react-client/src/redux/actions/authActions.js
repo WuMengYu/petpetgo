@@ -18,6 +18,7 @@ export const login = (data, history) => (
       res => {
         localStorage.setItem('userId', res.data.userId)
         dispatch({ type: 'CLOSE_LOGIN_FORM'})
+        dispatch({ type: 'LOGIN', userName: res.data.user})
         history.push('/mine')
       }
     )
@@ -33,5 +34,18 @@ export const openLoginForm = () => (
 export const closeLoginForm = () => (
   dispatch => {
     dispatch({ type: 'CLOSE_LOGIN_FORM'})
+  }
+)
+
+
+export const signup = (data, history) => (
+  dispatch => {
+    axios.post(`${Settings.host}/user/signup`, data).then(res => {
+      console.log('res.data', res.data)
+      localStorage.setItem('userId', res.data.userId)
+      history.push('/mine')
+      dispatch({ type: 'SIGNUP', userName: res.data.username})
+      dispatch({ type: 'CLOSE_SIGNUP_FORM'})
+    })
   }
 )

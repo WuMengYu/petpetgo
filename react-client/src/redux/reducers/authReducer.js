@@ -10,6 +10,10 @@ const auth = (state=defaultState, action) => {
       return {...state, loginFormOpen: true}
     case 'CLOSE_LOGIN_FORM':
       return {...state, loginFormOpen: false}
+    case 'LOGIN':
+      return {...state, currentUser: action.userName}
+    case 'SIGNUP':
+      return {...state, currentUser: action.userName}
     default:
       return state
   }
