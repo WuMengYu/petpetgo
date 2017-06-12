@@ -1,5 +1,7 @@
 let defaultState = {
-  bottomListopen: false
+  bottomListOpen: false,
+  flashOpen: false,
+  flashMsg: ''
 }
 const view = (state=defaultState, action) => {
   switch (action.type) {
@@ -7,6 +9,8 @@ const view = (state=defaultState, action) => {
       return {...state,  bottomListOpen: true }
     case 'CLOSE_BOTTOM_LIST':
       return {...state,  bottomListOpen: false }
+    case 'FLASH':
+      return {...state,  flashOpen: true, flashMsg: action.msg }
     default:
       return state
   }

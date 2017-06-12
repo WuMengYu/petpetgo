@@ -4,6 +4,7 @@ import Main from './Main'
 import BottomList from './BottomList'
 import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
+import Flash from './Flash'
 import '../css/App.css'
 import {
   BrowserRouter as Router
@@ -21,6 +22,7 @@ class App extends Component {
           <div>
             <Header />
             <Main />
+            <Flash />
             <SignupForm />
             <LoginForm />
             <BottomList />
