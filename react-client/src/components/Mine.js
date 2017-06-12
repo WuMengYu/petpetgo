@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
+import { fetchUser } from '../redux/actions/authActions'
+import { connect } from 'react-redux'
 
 class App extends Component {
+  componentWillMount() {
+    this.props.fetchUser()
+  }
   render() {
     return (
       <div>
-        Mine
+        currentUser: { this.props.currentUser }
       </div>
     );
   }
 }
 
-export default App
+const mapStateToProps = (state) => ({
+  currentUser: state.auth.currentUser
+})
+
+export default connect(mapStateToProps, { fetchUser })(App)

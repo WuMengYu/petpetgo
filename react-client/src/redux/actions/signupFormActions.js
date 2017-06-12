@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import { openBottomList } from './botttomListActions'
+import Settings from '../../settings'
 
 export const openSignupForm = () => (
   dispatch => {
@@ -14,7 +14,7 @@ export const closeSignupForm = () => (
 
 export const signup = (data, history) => (
   dispatch => {
-    axios.post('http://petapi.haoduoshipin.com/user/signup', data).then(res => {
+    axios.post(`${Settings.host}/user/signup`, data).then(res => {
       console.log('res.data', res.data)
       localStorage.setItem('userId', res.data.userId)
       history.push('/mine')
