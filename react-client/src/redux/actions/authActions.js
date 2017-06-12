@@ -21,6 +21,13 @@ export const login = (data, history) => (
         dispatch({ type: 'LOGIN', userName: res.data.user})
         history.push('/mine')
       }
+    ).catch(
+      error => {
+        console.log(error.response.data.msg)
+        const { msg } = error.response.data
+        dispatch({ type: 'FLASH', msg })
+        setTimeout(() => dispatch({ type: 'HIDE_FLASH' }), 5000)
+      }
     )
   }
 )
