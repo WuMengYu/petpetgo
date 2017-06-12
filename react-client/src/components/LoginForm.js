@@ -1,25 +1,25 @@
 import '../css/signup-login-form.css'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signup, closeSignupForm } from '../redux/actions/signupFormActions'
+import { login, closeLoginForm } from '../redux/actions/authActions'
 
 import {
   withRouter
 } from 'react-router-dom'
 
-class SignupForm extends Component {
+class LoginForm extends Component {
   constructor() {
     super()
-    this.signup = this.signup.bind(this)
+    this.login = this.login.bind(this)
   }
 
-  signup(e) {
+  login(e) {
     e.preventDefault()
     let data = {
       username: this.userName.value,
       password: this.passWord.value
     }
-    this.props.signup(data, this.props.history)
+    this.props.login(data, this.props.history)
   }
 
   render() {
@@ -28,13 +28,12 @@ class SignupForm extends Component {
         style={this.props.open ? { display: 'block' } : { display: 'none' }}
       >
         <div className="form-container">
-          <form onSubmit={this.signup}>
+          <form onSubmit={this.login}>
             <input ref={input => this.userName = input} type="text" placeholder="用户名" />
             <input ref={input => this.passWord = input} type="password" placeholder="密码" />
-            <input type="password" placeholder="再次输入" />
             <div className="signup-login-actions">
-              <div onClick={this.props.closeSignupForm} className="cancle">取消</div>
-              <button className="submit" type="submit">注册</button>
+              <div onClick={this.props.closeLoginForm} className="cancle">取消</div>
+              <button className="submit" type="submit">登录</button>
             </div>
           </form>
         </div>
@@ -44,6 +43,6 @@ class SignupForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  open: state.signupForm.open
+  open: state.auth.loginFormOpen
 })
-export default connect(mapStateToProps, { signup, closeSignupForm })(withRouter(SignupForm))
+export default connect(mapStateToProps, { login, closeLoginForm })(withRouter(LoginForm))

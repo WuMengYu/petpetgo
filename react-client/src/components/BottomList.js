@@ -4,11 +4,14 @@ import { connect } from 'react-redux'
 import { closeBottomList } from '../redux/actions/bottomListActions'
 import { openSignupForm } from '../redux/actions/signupFormActions'
 
+import { openLoginForm } from '../redux/actions/authActions'
+
 class BottomList extends Component {
   constructor() {
     super()
     this.cancel = this.cancel.bind(this)
     this.signup = this.signup.bind(this)
+    this.login = this.login.bind(this)
   }
 
   cancel() {
@@ -20,6 +23,11 @@ class BottomList extends Component {
     this.props.closeBottomList()
   }
 
+  login() {
+    this.props.openLoginForm()
+    this.props.closeBottomList()
+  }
+
   render() {
     return(
       <div
@@ -27,7 +35,7 @@ class BottomList extends Component {
         <div className="login-actions">
           <ul>
             <li onClick={this.signup}>注册</li>
-            <li onClick={this.showLogin}>登录</li>
+            <li onClick={this.login}>登录</li>
             <li onClick={this.cancel}>取消</li>
           </ul>
         </div>
@@ -39,4 +47,4 @@ class BottomList extends Component {
 const mapStateToProps = (state) => ({
   open: state.bottomList.open
 })
-export default connect(mapStateToProps, { closeBottomList, openSignupForm })(BottomList)
+export default connect(mapStateToProps, { closeBottomList, openSignupForm, openLoginForm })(BottomList)

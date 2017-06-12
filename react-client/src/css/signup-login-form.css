@@ -1,4 +1,4 @@
-.signup-form {
+.signup-login-form {
   background: red;
   position: fixed;
   top: 0;
@@ -7,7 +7,7 @@
   bottom: 0;
   background-color: rgba(33,33,33,0.45);
 }
-.signup-form .form-container{
+ .signup-login-form .form-container{
   position: fixed;
   border-radius: 4px;
   width: 80%;
@@ -18,12 +18,12 @@
   background-color: #fff;
 }
 
-.signup-form form {
+.signup-login-form form {
   margin: 80px auto;
   width: 90%;
 }
 
-.signup-form form input {
+.signup-login-form form input {
   border: none;
   border-bottom: 1px solid rgba(25,25,25,0.1);
   line-height: 1.9;
@@ -31,16 +31,16 @@
   width: 100%;
 }
 
-.signup-form form input:focus {
+.signup-login-form form input:focus {
   outline: none;
 }
 
-.signup-actions {
+.signup-login-actions {
   display: flex;
   margin-top: 10px;
 }
 
-.signup-actions button {
+.signup-login-actions button {
   flex-grow: 1;
   border-radius: 4px;
   padding: 0;
@@ -50,15 +50,15 @@
   margin: 5px;
 }
 
-.signup-actions button:focus {
+.signup-login-actions button:focus {
   outline: none;
 }
 
-.signup-form .submit {
+.signup-login-form .submit {
   background-color: #fdc900;
   color: #212121;
 }
-.signup-form .cancle {
+.signup-login-form .cancle {
   line-height: 2.2;
   font-size: 1.2em;
   margin: 5px;
