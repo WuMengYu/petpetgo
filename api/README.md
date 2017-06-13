@@ -83,3 +83,19 @@ $ curl -X POST -H 'Content-Type: application/json' -d '{"name": "如意山海饭
 
 {"shopId":"593f3d2f32fc1015523f8d31","name":"如意山海饭店","msg":"保存成功"}%
 ```
+
+
+### 列出所有店面
+
+```
+$ curl http://petapi.haoduoshipin.com/shops
+
+{"shops":[{"_id":"593f3d2f32fc1015523f8d31","name":"如意山海饭店","__v":0},{"_id":"593f3da032fc1015523f8d32","name":"山海关饭店","__v":0}]}%
+```
+
+### 搜索店面
+
+```
+curl -X POST -H 'Content-Type: application/json' -d '{"key": "山"}' http://petapi.haoduoshipin.com/shop/search
+{"shops":[{"_id":"593f3d2f32fc1015523f8d31","name":"如意山海饭店","__v":0},{"_id":"593f3da032fc1015523f8d32","name":"山海关饭店","__v":0}]}%
+```
