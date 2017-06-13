@@ -74,3 +74,12 @@ $ curl http://petapi.haoduoshipin.com/user/593a110767f1411805a6fcb3
 
 {"msg":"读取用户成功","user":{"username":"happypeter"}}%
 ```
+
+
+### 提交店面
+
+```
+$ curl -X POST -H 'Content-Type: application/json' -d '{"name": "如意山海饭店"}' http://petapi.haoduoshipin.com/shop/new
+
+{"shopId":"593f3d2f32fc1015523f8d31","name":"如意山海饭店","msg":"保存成功"}%
+```
